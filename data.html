@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<!-- head -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CS 360/560 Spring 2019</title>
+
+    <!-- bulma 0.7.2 and font awesome v5.7.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" integrity="sha256-2pUeJf+y0ltRPSbKOeJh09ipQFYxUdct5nTY6GAXswA=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<!-- body -->
+<body>
+
+<!-- header -->
+<section class="hero is-bold header">
+    <!-- todo: change assignment and name -->
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Violent Crime Rate California (2000-2013)
+            </h1>
+            <h2 class="subtitle">
+                Gudbrand Schistad
+            </h2>
+        </div>
+    </div>
+
+    <!-- todo: change navigation as needed -->
+    <div class="hero-foot">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="index.html">
+              <span class="icon">
+                <i class="fas fa-home"></i>
+              </span>
+                        <span>Home</span>
+                    </a>
+                </div>
+
+                <div id="main-navbar" class="navbar-menu">
+                    <a class="navbar-item" href="data.html">
+              <span class="icon">
+                <i class="fas fa-chart-area"></i>
+              </span>
+                        <span>Data</span>
+                    </a>
+                </div>
+
+                <a class="navbar-item" href="about.html">
+              <span class="icon">
+                <i class="fas fa-info-circle"></i>
+              </span>
+                    <span>About</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container content">
+        <h3>Data & Processing</h3>
+        <p>This table contains data on the rate of violent crime (crimes per 1,000 population) for California, its regions, counties, cities and towns. Crime and population data are from the Federal Bureau of Investigations, Uniform Crime Reports. Rates above the city/town level include data from city, university and college, county, state, tribal, and federal law enforcement agencies. </p>
+        Data source: <a href="https://data.ca.gov/dataset/violent-crime-rate" target="_blank">Violent Crime Rate, California</a>
+        (The dataset was downloaded on 04/01/2019)
+
+        <table class="table is-bordered is-striped is-narrow is-fullwidth">
+            <thead>
+            <tr>
+                <th style="width: 15ex">Attribution</th>
+                <th style="width: 12ex">Value</th>
+                <th>Sreenshot</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <td>Size</td>
+                <td>9.9 MB</td>
+                <td><img class="snip" src="img/file_size.png"></td>
+            </tr>
+            <tr>
+                <td>Rows</td>
+                <td>49.228</td>
+                <td><img class="snip" src="img/num_rows.png"></td>
+            </tr>
+            <tr>
+                <td>Columns</td>
+                <td>27</td>
+                <td><img class="snip" src="img/num_collum.png"></td>
+            </tr>
+            <tr>
+                <td>Data Types</td>
+                <td colspan="2">String, Number, Date, Location (County)</td>
+            </tr>
+            </tfoot>
+        </table>
+        <p>
+            <a href="https://data.ca.gov/about" target="_blank">Licence: </a>
+            "The Government Operations Agency sponsors data.ca.gov, a statewide open data portal created to improve collaboration, expand transparency and lead to innovation and increased effectiveness. "
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container content">
+    <h4>Relevant columns</h4>
+        <table  class="table" style="width: 50%">
+            <thead>
+                <th>Column name</th>
+                <th>Description</th>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>county_name</td>
+                    <td>Describes the county the crime was reported</td>
+
+                </tr>
+                <tr>
+                    <td>reportyear</td>
+                    <td>The year of the report</td>
+                </tr>
+                <tr>
+                    <td>strata_level_name</td>
+                    <td>Crime type such as; Robbery, Forcible rape, Aggravated assault, etc.</td>
+                </tr>
+                <tr>
+                    <td>strata_level_name_code</td>
+                    <td>Represents the strata_level_name with numeric values ranging from 1-6</td>
+                </tr>
+                <tr>
+                    <td>numerator</td>
+                    <td>Number of crimes by type of crime</td>
+                </tr>
+                <tr>
+                    <td>denominator</td>
+                    <td>Total population as reported by the Federal Bureau of Investigation</td>
+                </tr>
+                <tr>
+                    <td>rate</td>
+                    <td>Number of violent crimes per 1,000 population</td>
+                </tr>
+            </tfoot>
+        </table>
+        <p>The full data set description by data.ca.gov can be downloaded <a href="https://data.chhs.ca.gov/dataset/99bc1fea-c55c-4377-bad8-f00832fd195d/resource/86cd9392-4d4c-40a1-8b7f-0ac247c8b841/download/violentcrimedatadictionary.xlsx" target="_blank">her </a></p>
+
+
+        <h4>Initial processing </h4>
+        <p>So far the dataset is <b>not</b> processed at all, but there are some things that I need to fix for my different visualizations. One of the first thing that I need to do is to deal with the missing data. The ratio column is for the most part not calculated for the different rows, so I need to write a script to do this. I'm not sure if D3 requires me to have longitude and latitude yet(or if i can just use county),
+            but I have written a <a href="./dataFilter.py" target="_blank">python script</a> that can append latitude and longitude for each row based on their county. I also want to be able to have interactivity based on the year for my map visualization, and I might, therefore, create a separate file for each year if that proves to load faster than a single file.  </p>
+    </div>
+</section>
+<!-- footer -->
+<footer class="footer">
+    <div class="content has-text-centered">
+        <small>
+            <a href="#top">
+                <span class="fas fa-arrow-up"></span>
+                <span>Back to Top</span>
+            </a>
+            <br/>
+            <a href="/">CS 360/560 Data Visualization</a>
+            &bullet;
+            <a href="https://myusf.usfca.edu/arts-sciences/computer-science">Department of Computer Science</a>
+            &bullet;
+            <a href="https://www.usfca.edu/">University of San Franciscio</a>
+        </small>
+    </div>
+</footer>
+
+<!-- end body and html -->
+</body>
+</html>

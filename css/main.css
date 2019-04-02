@@ -1,0 +1,38 @@
+.header{
+    background-image: linear-gradient(to bottom right, #0F2027, #203A43, #2C5364);
+}
+.header .title {
+    font-weight: bolder;
+    color: #ffffff;
+
+}
+.header .subtitle {
+    font-weight: bold;
+    color: #ffffff;
+}
+.navbar-item {
+    color: #ffffff;
+
+}
+.snip {
+    display: block;
+    margin: auto;
+    width: 80%;
+}
+
+.fixed-bg {
+    background-image: url("../img/benjamin-lizardo-1416325-unsplash.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footer{
+    background-image: linear-gradient(to bottom right, #0F2027, #203A43, #2C5364);
+}
+
+a:hover {
+    color: #ffffff; !important;
+}
