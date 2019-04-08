@@ -66,60 +66,38 @@
               </span>
                     <span>About</span>
                 </a>
-        </nav>
-    </div>
+            </nav>
+        </div>
     </div>
 </section>
 <section class="section">
     <div class="container content">
+        <div class="svg-box">
+
+            <svg id="vis1" width="960" height="600" style="background-color: #bfcad9; border-radius: 10px;">
+                <g id="basemap"></g>
+                <g id="outline" pointer-events="none"></g>
+                <g id="tooltip" pointer-events="none"></g>
+                <g id="details" pointer-events="none"></g>
+            </svg>
 
 
-        <h3>About me</h3>
-            <article class="media">
-                <img style="border-radius: 0%; height: 300px; float: left;   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); " src="./img/IMG_7910.PNG" alt="Avatar">
-                <div class="media-content">
-                    <div class="content" style="padding-left: 10px">
-                        <p>
-                            <strong>Gudbrand Schistad </strong> </p>
-                            <p>Hi👋<br>
-                            My name is Gudbrand Schistad and I am currently a second year graduate student studying Computer Science at University of San Francisco expecting to graduate in May 2019.
-                            On my free time I enjoy the outdoors, and other than computers I would say my greatest passion is traveling.<br><br> Feel free to say hello on ony of linked accounts                       </p>
-                    </div>
-                </div>
-            </article>
+        </div>
+            <div class="slidecontainer">
+                <input type="range" min="1999" max="2013" value="1999" class="slider" id="myRange" >
+                <input class="selector" type="button" value="Show all years"   id="All"/>
 
-        <p style="float: left; padding-top: 10px">
-            <a href="https://github.com/gudbrandsc/" target="_blank">
-            <span class="fab fa-github"></span>
-            <span>Github</span>
-        </a>
-            &bullet;
-            <a href="https://www.linkedin.com/in/gudbrand-schistad/" target="_blank">
-                <span class="fab fa-linkedin"></span>
-                <span>LinkedIn</span>
-            </a>
-            &bullet;
-            <a href="gschistad@dons.usfca.edu" target="_blank">
-                <span class="fas fa-envelope"></span>
-                <span>Email</span>
-            </a>
-        </p>
+            </div>
+
 
     </div>
 </section>
-<hr>
 
-<section class="section" style="padding-top: 10px !important;">
-    <div class="container content">
-        <h3>Why violent crimes in California?</h3>
-        <p>I chose this data set because I wanted to get a deeper understanding of the evolution of violent crimes in the last years. Prevention of violent crimes is, of course, a problem that is tied to a lot of factors such as; the economy, unemployment, culture, etc. But I hope by providing a piece to the puzzle that I can try to gain some deeper knowledge of this issue and see if we are moving in a positive direction. </p>
-    </div>
-</section>
 
 <!-- footer -->
 <footer class="footer">
     <div class="content has-text-centered">
-        <small>
+        <small class="footer-text">
             <a href="#top">
                 <span class="fas fa-arrow-up"></span>
                 <span>Back to Top</span>
@@ -133,6 +111,8 @@
         </small>
     </div>
 </footer>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="mapVis.js"></script>
 
 <!-- end body and html -->
 </body>

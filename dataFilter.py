@@ -1,21 +1,28 @@
 import csv
 from geopy.geocoders import Nominatim
 
-with open('Crime_Data_from_2010_to_Present.csv', 'r') as inp, open('gudbrnad3.csv', 'w') as out_2018:
+with open('./data/newData.csv', 'r') as inp, open('gudbrnad3.csv', 'w') as out_2018:
     writer = csv.writer(out_2018)
     header = 0
-    geolocator = Nominatim(user_agent="dataFitler")
     for row in csv.reader(inp):
     	if header == 0:
-    		writer.writerow(['Date Occurred', 'Latitude', 'Longitude', 'State', 'City', "District"])
+    		writer.writerow(['reportyear', 'county_name','strata_level_name_code', 'strata_level_name', 'numerator', 'denominator', 'rate'])
     		header = 1
     	else:
-    		point=row[25].split(',')
-    		lat = point[0][1:]
-    		ltude = point[1][:-1]
-    		location = geolocator.reverse(str(lat) + "," + str(ltude))
-    		address = location.address.split(',')
-    		writer.writerow([row[2],lat, ltude, 'California', 'Los Angeles', address[3]])
+    		header += 1
+    		if ((row[16] != '') and (row[17] != '')):
+    			nom = int(row[16])
+    			dom = int(row[17])
+    			rate = (nom/dom)*1000
+    			county = row[9]   
+    			stratName = row[15]
+    			stratCode = row[14]
+    			year = row[2]
+
+    			g = float("{0:.2f}".format(rate))
+
+
+    			writer.writerow([year, county, stratCode, stratName,nom,dom, g])
 
 
          
