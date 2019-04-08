@@ -52,13 +52,23 @@
               </span>
                         <span>Data</span>
                     </a>
+                    <a class="navbar-item" href="prototypes.html">
+              <span class="icon">
+                <i class="fas fa-image"></i>
+              </span>
+                        <span>Prototypes</span>
+                    </a>
+
+
                     <a class="navbar-item" href="mapVis.html">
               <span class="icon">
                 <i class="fas fa-chart-area"></i>
               </span>
-                        <span>Map Visualisation</span>
+                        <span>Crime evolution map</span>
                     </a>
                 </div>
+
+
 
                 <a class="navbar-item" href="about.html">
               <span class="icon">
@@ -70,29 +80,81 @@
         </div>
     </div>
 </section>
+
+<section class="section">
+    <div class="container content">
+        <!-- todo: modify as necessary (or move visualizations to separate pages) -->
+        <h2>Choropleth Map </h2>
+        <h3>Interpretation</h3>
+        <p> Explain </p>
+    </div>
+</section>
 <section class="section">
     <div class="container content">
         <div class="svg-box">
 
-            <svg id="vis1" width="960" height="600" style="background-color: #bfcad9; border-radius: 10px;">
-                <g id="basemap"></g>
-                <g id="outline" pointer-events="none"></g>
-                <g id="tooltip" pointer-events="none"></g>
-                <g id="details" pointer-events="none"></g>
-            </svg>
+                <svg class="svg-inner-box" id="vis1" width="960" height="600" style="background-color: #e8e8e8;">
+                    <g id="basemap"></g>
+                    <g id="outline" pointer-events="none"></g>
+                    <g id="tooltip" pointer-events="none"></g>
+                    <g id="details" pointer-events="none"></g>
+                </svg>
 
+            <div class="slidecontainer">
+                <div class="range">
+                    <input type="range" min="1999" max="2013" value="2" class="slider" id="myRange">
+                    <div class="sliderticks">
+                        <p>All</p>
+                        <p>2000</p>
+                        <p>2001</p>
+                        <p>2002</p>
+                        <p>2003</p>
+                        <p>2004</p>
+                        <p>2005</p>
+                        <p>2006</p>
+                        <p>2007</p>
+                        <p>2008</p>
+                        <p>2009</p>
+                        <p>2010</p>
+                        <p>2011</p>
+                        <p>2012</p>
+                        <p>2013</p>
+                    </div>
+                </div>
+       </div>
+            <input class="selector button is-danger" type="button" value="Show detailed tooltip"   id="tooltip-selector"/>
 
         </div>
-            <div class="slidecontainer">
-                <input type="range" min="1999" max="2013" value="1999" class="slider" id="myRange" >
-                <input class="selector" type="button" value="Show all years"   id="All"/>
 
-            </div>
 
 
     </div>
 </section>
+<!-- separator between sections -->
+<hr class="container">
+<section class="section">
+    <div class="container content">
+        <!-- todo: modify as necessary (or move visualizations to separate pages) -->
+        <h3>Interactivity</h3>
 
+        <p>
+            The visualization comes with a few interactive features.
+
+        </p>
+
+        <h3>What can learn about that data from the visualization?</h3>
+
+        <p>
+            probably because they allow the trees to grow more freely in the parks.
+        </p>
+        <h3>Credits</h3>
+        <p>
+            <a href="https://github.com/codeforamerica/click_that_hood" target="_blank">California county geojson by @mwichary</a><br>
+            <a href="https://bl.ocks.org/sjengle/2f6d4832397e3cdd78d735774cb5a4f2" target="_blank">SF Arrests Map by @sjengle</a><br>
+            <a href="https://data.ca.gov/dataset/violent-crime-rate" target="_blank">Violent crime rate dataset by @data.ca.gov</a><br>
+        </p>
+    </div>
+</section>
 
 <!-- footer -->
 <footer class="footer">

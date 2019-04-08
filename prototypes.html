@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<!-- head -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CS 360/560 Spring 2019</title>
+
+    <!-- bulma 0.7.2 and font awesome v5.7.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" integrity="sha256-2pUeJf+y0ltRPSbKOeJh09ipQFYxUdct5nTY6GAXswA=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<!-- body -->
+<body>
+<!-- header -->
+<section class="hero is-bold header">
+    <!-- todo: change assignment and name -->
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Violent Crime Rate California (2000-2013)
+            </h1>
+            <h2 class="subtitle">
+                Gudbrand Schistad
+            </h2>
+        </div>
+    </div>
+
+    <!-- todo: change navigation as needed -->
+    <div class="hero-foot">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="index.html">
+              <span class="icon">
+                <i class="fas fa-home"></i>
+              </span>
+                        <span>Home</span>
+                    </a>
+                </div>
+
+                <div id="main-navbar" class="navbar-menu">
+                    <a class="navbar-item" href="data.html">
+              <span class="icon">
+                <i class="fas fa-chart-area"></i>
+              </span>
+                        <span>Data</span>
+                    </a>
+                    <a class="navbar-item" href="prototypes.html">
+              <span class="icon">
+                <i class="fas fa-image"></i>
+              </span>
+                        <span>Prototypes</span>
+                    </a>
+
+
+                    <a class="navbar-item" href="mapVis.html">
+              <span class="icon">
+                <i class="fas fa-chart-area"></i>
+              </span>
+                        <span>Crime evolution map</span>
+                    </a>
+                </div>
+
+
+
+                <a class="navbar-item" href="about.html">
+              <span class="icon">
+                <i class="fas fa-info-circle"></i>
+              </span>
+                    <span>About</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section">
+    <div class="container content">
+        <h2>Map vis </h2>
+        <p>This prototype displays a <a href="https://en.wikipedia.org/wiki/Choropleth_map">choropleth map</a>
+            over each county in California,
+            where the color encoding is based on the violent crime <a href="https://oag.ca.gov/sites/all/files/agweb/pdfs/cjsc/prof10/formulas.pdf">rate</a>
+            per 1.000 people living in the county.
+            The current prototype uses the average crime rate for all years 2000-2013,
+            which allows us to get a quick overview of the county with the highest overall violent crime rates in our time period.
+        </p>
+        <img style="border-radius: 0%;box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);" src="./img/map_proto.png" alt="California map" height="600" width="960">
+    </div>
+</section>
+
+<section class="section">
+    <div class="container content">
+        <h3>Planed interactivity</h3>
+        <p>
+            <b>Year selector:</b> Range slider to filter the data by a specific year, this should also include a option to select "All years", which will display the same data as the prototype
+            <br><b>Tooltip:</b> Hover over a specific county to see county data.
+            <br><b>Detailed info:</b> Button to select how much detail that should be display in the tooltip.
+            <br><b>Panning:</b> You can move the map around by clicking and holding the left mouse button while moving the mouse.
+            <br><b>Zooming:</b> Use your scroll wheel to zoom in or out on the map.
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container content">
+        <h3>Goal</h3>
+        <p>The goal of this visualization is to get a geographic understanding of the violent crimes rates in California. With the help of the interactive features, the reader will be able to see the change in the violent crime rate for specific counties, as well see what types of violent crimes that are the most common in the selected county. Its also important to mention the lie factor in the color scale, since it will be based on the highest violent crime rate of the selected year, so the same color may mean different rate values in different years. </p></div>
+</section>
+<hr>
+
+<!-- footer -->
+<footer class="footer">
+    <div class="content has-text-centered">
+        <small>
+            <a href="#top">
+                <span class="fas fa-arrow-up"></span>
+                <span>Back to Top</span>
+            </a>
+            <br/>
+            <a href="/">CS 360/560 Data Visualization</a>
+            &bullet;
+            <a href="https://myusf.usfca.edu/arts-sciences/computer-science">Department of Computer Science</a>
+            &bullet;
+            <a href="https://www.usfca.edu/">University of San Francisco</a>
+        </small>
+    </div>
+</footer>
+
+<!-- end body and html -->
+</body>
+</html>

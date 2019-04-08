@@ -46,6 +46,7 @@ var g = {
     details: svg.select("g#details")
 };
 
+
 // setup tooltip (shows neighborhood name)
 var tip = g.tooltip.append("text").attr("id", "tooltip");
 tip.attr("text-anchor", "end");
@@ -57,15 +58,17 @@ tip.style("visibility", "hidden");
 // https://bl.ocks.org/mbostock/1424037
 var details = g.details.append("foreignObject")
     .attr("id", "details")
-    .attr("width", 960)
+    .attr("width", 300)
     .attr("height", 600)
-    .attr("x", 0)
-    .attr("y", 0);
+    .attr("x", width-310)
+    .attr("y", 80);
 
 var body = details.append("xhtml:body")
     .style("text-align", "left")
-    .style("background", "none")
-    .html("<p>N/A</p>");
+    .style("background", "rgba(69, 69, 69, 0.10)")
+    .style("border-radius", "10px")
+    .style("box-shadow","0px 0px 2px 0px #a6a6a6")
+    .attr("class", "tooltip-table");
 
 details.style("visibility", "hidden");
 
@@ -140,6 +143,7 @@ function drawBasemap(json) {
 
     console.log("Draw map");
     console.log(filterYear);
+    console.log(countyMap);
 
 
     let countMax = 0;
@@ -171,8 +175,6 @@ function drawBasemap(json) {
         .attr("d", path)
         .style("fill", function(d) {
             let value = countyMap.get(d.properties.name);
-            console.log("New color");
-
             return colorScale(value["year"][filterYear]["average"]);
         })
         .attr("class", "land");
@@ -202,41 +204,73 @@ function drawBasemap(json) {
 
     var tooltip = d3.select("body").append("div").attr("class", "tooltip");
 
-
     // add tooltip
     basemap.on("mouseover.tooltip", function(d) {
         let value = countyMap.get(d.properties.name);
 
-        let htmlData = "<p> <b>County:</b> " + d.properties.name + "</p>" + "<p> <b>Average :</b> " + value["year"][filterYear]["average"] + "</p>"
+        tooltipFlag = d3.select(".selector").node().value
 
-        tooltip.style("left", d3.event.pageX - 50 + "px")
-            .style("top", d3.event.pageY - 70 + "px")
-            .style("display", "inline-block")
-            .html(htmlData);
+        if(tooltipFlag == "Show detailed tooltip"){
+            let htmlData =
+                "<p> <b>County:</b> " + d.properties.name + "</p>" +
+                "<p> <b>Violent crime rate:</b> " + value["year"][filterYear]["average"] + "</p>"
 
+            tooltip.style("left", d3.event.pageX - 50 + "px")
+                .style("top", d3.event.pageY - 70 + "px")
+                .style("display", "inline-block")
+                .html(htmlData);
+        } else {
+            body.html("<table border=0 cellspacing=0 cellpadding=2>" + "\n" +
+                "<tr><th>County name:</th><td>" + d.properties.name + "</td></tr>" + "\n" +
+                "<tr><th>Robbery rate:</th><td>" + value["year"][filterYear]["Robbery"] + "</td></tr>" + "\n" +
+                "<tr><th>Forcible rape rate:</th><td>" + value["year"][filterYear]["Forcible rape"] + "</td></tr>" + "\n" +
+                "<tr><th>Aggravated assault rate:</th><td>" + value["year"][filterYear]["Aggravated assault"] + "</td></tr>" + "\n" +
+                "<tr><th>Murder and non-negligent manslaughter rate:</th><td>" + value["year"][filterYear]["Murder and non-negligent manslaughter"] + "</td></tr>" + "\n" +
+                "<tr><th>Average violent crime rate in "+d.properties.name +":</th><td>" + value["year"][filterYear]["average"] + "</td></tr>" + "\n" +
+                "</table>");
+            details.style("visibility", "visible");
+
+        }
     })
         .on("mousemove.tooltip", function(d) {
             let value = countyMap.get(d.properties.name);
 
-            let htmlData = "<p> <b>County:</b> " + d.properties.name + "</p>" + "<p> <b>Average :</b> " + value["year"][filterYear]["average"] + "</p>"
+            tooltipFlag = d3.select(".selector").node().value;
 
-            tooltip
-                .style("left", d3.event.pageX - 50 + "px")
-                .style("top", d3.event.pageY - 70 + "px")
-                .style("display", "inline-block")
-                .html(htmlData);
+            if(tooltipFlag == "Show detailed tooltip"){
+                let htmlData =
+                    "<p> <b>County:</b> " + d.properties.name + "</p>" +
+                    "<p> <b>Violent crime rate:</b> " + value["year"][filterYear]["average"] + "</p>"
+
+                tooltip.style("left", d3.event.pageX - 50 + "px")
+                    .style("top", d3.event.pageY - 70 + "px")
+                    .style("display", "inline-block")
+                    .html(htmlData);
+            } else {
+                body.html("<table border=0 cellspacing=0 cellpadding=2>" + "\n" +
+                    "<tr><th>County name:</th><td>" + d.properties.name + "</td></tr>" + "\n" +
+                    "<tr><th>Robbery rate:</th><td>" + value["year"][filterYear]["Robbery"] + "</td></tr>" + "\n" +
+                    "<tr><th>Forcible rape rate:</th><td>" + value["year"][filterYear]["Forcible rape"] + "</td></tr>" + "\n" +
+                    "<tr><th>Aggravated assault rate:</th><td>" + value["year"][filterYear]["Aggravated assault"] + "</td></tr>" + "\n" +
+                    "<tr><th>Murder and non-negligent manslaughter rate:</th><td>" + value["year"][filterYear]["Murder and non-negligent manslaughter"] + "</td></tr>" + "\n" +
+                    "<tr><th>Average violent crime rate in "+d.properties.name +":</th><td>" + value["year"][filterYear]["average"] + "</td></tr>" + "\n" +
+                    "</table>");
+                details.style("visibility", "visible");
+
+            }
+
+
+
         })
         .on("mouseout.tooltip", function(d) {
-            tooltip
-                .style("display", "none");
+            tooltipFlag = d3.select(".selector").node().value;
+            if(tooltipFlag == "Show detailed tooltip"){
+                tooltip
+                    .style("display", "none");
+            } else {
+               details.style("visibility", "hidden");
+            }
 
-            console.log("out")
-
-        });
-
-    d3.selectAll('.selector')
-        .on('click', function(d) {
-            update(this.id);
         });
     d3.selectAll('#myRange')
         .on('input', function(d) {
@@ -247,7 +281,19 @@ function drawBasemap(json) {
             }
         });
 
-    basemap.call(d3.zoom().on("zoom", zoomed));
+    d3.selectAll('.selector')
+        .on('click', function(d) {
+            if(this.value == "Show detailed tooltip") {
+                this.value = "Show less detail"
+            } else {
+                this.value = "Show detailed tooltip"
+
+            }
+
+        });
+
+
+    svg.call(d3.zoom().on("zoom", zoomed));
 
     drawColorLegend(colorScale, meanValue)
 
@@ -260,21 +306,24 @@ function drawBasemap(json) {
 function translate(x, y) {
     return "translate(" + String(x) + "," + String(y) + ")";
 }
-
 function convertData(row) {
     let neighborhood = row["county_name"];
     let year = row["reportyear"];
     let rate =  parseFloat(row["rate"]);
-
+    let strata_name = row["strata_level_name"];
+    //strata_name.split(' ').join('-');
     if (neighborhood != "") {
         if (countyMap.has(neighborhood)) {
             countyObj = countyMap.get(neighborhood)
             countyObj["year"][year]["count"]++;
             countyObj["year"][year]["rate"] += rate;
+            countyObj["year"][year][strata_name + " count"]++;
+            countyObj["year"][year][strata_name] += rate;
 
             countyObj["year"]["All"]["rate"] += rate;
             countyObj["year"]["All"]["count"]++;
-
+            countyObj["year"]["All"][strata_name + " count"]++;
+            countyObj["year"]["All"][strata_name] += rate;
 
             countyMap.set(neighborhood, countyObj)
         } else {
@@ -283,7 +332,22 @@ function convertData(row) {
             };
             for (let j = 0; j < yearList.length; j++) {
                 let year = yearList[j];
-                newObj["year"][year] = {"rate" : 0, "count": 0, "average": 0};
+                newObj["year"][year] = {
+                    "rate" : 0,
+                    "count": 0,
+                    "average": 0,
+                    "Murder and non-negligent manslaughter": 0,
+                    "Robbery" : 0,
+                    "Forcible rape": 0,
+                    "Aggravated assault": 0,
+                    "Violent crime total": 0,
+                    "Murder and non-negligent manslaughter count": 0,
+                    "Robbery count" : 0,
+                    "Forcible rape count": 0,
+                    "Aggravated assault count": 0,
+                    "Violent crime total count": 0
+
+                };
             }
             countyMap.set(neighborhood, newObj)
         }
@@ -301,6 +365,25 @@ function setAllAverages() {
             let currRate = data["year"][year]["rate"];
             let currCount = data["year"][year]["count"];
             data["year"][year]["average"] = (currRate/currCount).toFixed(2);
+
+            let robRate = data["year"][year]["Robbery"];
+            let robCount = data["year"][year]["Robbery count"];
+            data["year"][year]["Robbery"] = (robRate/robCount).toFixed(2);
+
+            let rapeRate = data["year"][year]["Forcible rape"];
+            let rapeCount = data["year"][year]["Forcible rape count"];
+            data["year"][year]["Forcible rape"] = (rapeRate/rapeCount).toFixed(2);
+
+
+            let assultRate = data["year"][year]["Aggravated assault"];
+            let assultCount = data["year"][year]["Aggravated assault count"];
+            data["year"][year]["Aggravated assault"] = (assultRate/assultCount).toFixed(2);
+
+
+            let murderRate = data["year"][year]["Murder and non-negligent manslaughter"];
+            let murderCount = data["year"][year]["Murder and non-negligent manslaughter count"];
+            data["year"][year]["Murder and non-negligent manslaughter"] = (murderRate/murderCount).toFixed(2);
+
             countyMap.set(key, data)
         }
     }
@@ -318,11 +401,14 @@ function drawColorLegend(colorScale, total) {
     legend.append("text")
         .attr("class", "axis-title")
         .attr("dy", 6)
+        .style("font-size", "9px")
         .text("Number of violent crimes");
 
     legend.append("text")
         .attr("class", "axis-title")
         .attr("dy", 17)
+        .style("font-size", "9px")
+
         .text("pr. 1000 person");
 
 
@@ -348,20 +434,6 @@ function drawColorLegend(colorScale, total) {
 
     // we have to first add gradients
     let defs = svg.append("defs");
-
-   /* legend.append("text")
-        .attr("x", 0)
-        .attr("y", 75)
-        .style("text-anchor", "start")
-        .text("Year");*/
-
-    legend.append("text")
-        .attr("x", 0)
-        .attr("y", 90)
-        .style("text-anchor", "start")
-        .style("font-size", "16")
-
-        .text("Selected Year: " + filterYear);
 
     // add a stop per tick
     defs.append("linearGradient")
