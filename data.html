@@ -125,7 +125,7 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="data-table">
     <div class="container content">
     <h4>Relevant columns</h4>
         <table  class="table" style="width: 50%">
@@ -169,8 +169,13 @@
 
 
         <h4>Initial processing </h4>
-        <p>So far the dataset is <b>not</b> processed at all, but there are some things that I need to fix for my different visualizations. One of the first thing that I need to do is to deal with the missing data. The ratio column is for the most part not calculated for the different rows, so I need to write a script to do this. I'm not sure if D3 requires me to have longitude and latitude yet(or if i can just use county),
-            but I have written a <a href="./dataFilter.py" target="_blank">python script</a> that can append latitude and longitude for each row based on their county. I also want to be able to have interactivity based on the year for my map visualization, and I might, therefore, create a separate file for each year if that proves to load faster than a single file.  </p>
+        <p>So far the only data processing done to the data is to calculate the
+            <a href="https://oag.ca.gov/sites/all/files/agweb/pdfs/cjsc/prof10/formulas.pdf">rate</a>
+            column for each row by using the numerator and denominator.
+            I also had to add a few new rows to include the average violent crime rate for California as a whole.
+            This included adding a new strata level name <b>"caliAverage"</b>. The California average is calculated by the same formula as mentioned above,
+            and will only be used for the line chart. The data processing was all done by a python script that you can download <a href="./dataFilter.py" target="_blank">her</a>.
+        </p>
     </div>
 </section>
 <!-- footer -->

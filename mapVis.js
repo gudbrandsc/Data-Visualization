@@ -312,7 +312,7 @@ function convertData(row) {
     let rate =  parseFloat(row["rate"]);
     let strata_name = row["strata_level_name"];
     //strata_name.split(' ').join('-');
-    if (neighborhood != "") {
+    if (neighborhood != "" && neighborhood != "California") {
         if (countyMap.has(neighborhood)) {
             countyObj = countyMap.get(neighborhood)
             countyObj["year"][year]["count"]++;
@@ -358,7 +358,6 @@ function setAllAverages() {
     for(let index in countyMap.keys()) {
         let key = countyMap.keys()[index];
         let data = countyMap.get(key);
-
         for (let j = 0; j < yearList.length; j++) {
             let year = yearList[j];
 
