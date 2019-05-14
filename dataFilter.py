@@ -20,6 +20,7 @@ with open('./data/newData.csv', 'r') as inp, open('gudbrnad3.csv', 'w') as out_2
     writer = csv.writer(out_2018)
     header = 0
     for row in csv.reader(inp):
+    	print(row)
     	if header == 0:
     		writer.writerow(['reportyear', 'county_name','strata_level_name_code', 'strata_level_name', 'numerator', 'denominator', 'rate'])
     		header = 1

@@ -80,70 +80,131 @@
         </div>
     </div>
 </section>
-
 <section class="section">
-    <div class="container content">
-        <!-- todo: modify as necessary (or move visualizations to separate pages) -->
-        <h2>Choropleth Map </h2>
-        <p>NOTE: This page is not a prototype for the alpha release but will hopefully be a part of the final release. </p>
-        <h3>Interpretation</h3>
-        <p> Explain </p>
+    <div class="content" style="text-align: center">
+        <h1>Violent crimes in California(2000-2013) </h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,.
+        </p>
+        <hr>
     </div>
 </section>
+
+
+
 <section class="section">
-    <div class="container content">
-        <div class="svg-box">
+    <div class="content">
+        <div style="width: 48%; text-align: center; margin-right: 5px; float: left;">
+            <h2>California Counties Choropleth Map </h2>
+            <p>This  <a href="https://en.wikipedia.org/wiki/Choropleth_map">choropleth map</a> displays a geographic
+                representation of the different counties in California. The color scale is based on the violent crime <a href="https://oag.ca.gov/sites/all/files/agweb/pdfs/cjsc/prof10/formulas.pdf">rate</a> for the selected time,
+                where the min, mean and max are displayed in the legend.
+                It's important to note that the color scale will change based on the selected year
+                so the same color might not represent the same value in a different year.
+                This visualization comes with multiple interactive features, and can also be used to select the county displayed in the multi-line chart.
+            </p>
+        </div>
+        <div style="width: 48%; text-align: center; margin-bottom: 15px; float: left;">
+            <h2>Multi-Line Chart </h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,.</p>
+        </div>
+    </div>
+    <div style="clear: left"></div>
 
-                <svg class="svg-inner-box" id="vis1" width="960" height="600" style="background-color: #e8e8e8;">
-                    <g id="basemap"></g>
-                    <g id="outline" pointer-events="none"></g>
-                    <g id="tooltip" pointer-events="none"></g>
-                    <g id="details" pointer-events="none"></g>
-                </svg>
+    <div class="svg-box-container">
+        <svg class="svg-inner-box" id="vis1" width="100%" height="600" style="background-color: #e8e8e8; border-bottom: 1px solid black">
+            <g id="basemap"></g>
+            <g id="outline" pointer-events="none"></g>
+            <g id="tooltip" pointer-events="none"></g>
+            <g id="details" pointer-events="none"></g>
+        </svg>
 
-            <div class="slidecontainer">
-                <div class="range">
-                    <input type="range" min="1999" max="2013" value="2" class="slider" id="myRange">
-                    <div class="sliderticks">
-                        <p>All</p>
-                        <p>2000</p>
-                        <p>2001</p>
-                        <p>2002</p>
-                        <p>2003</p>
-                        <p>2004</p>
-                        <p>2005</p>
-                        <p>2006</p>
-                        <p>2007</p>
-                        <p>2008</p>
-                        <p>2009</p>
-                        <p>2010</p>
-                        <p>2011</p>
-                        <p>2012</p>
-                        <p>2013</p>
-                    </div>
+        <div class="slidecontainer">
+            <div class="range" style="margin: 10px !important;">
+                <input type="range" min="1999" max="2013" value="2" class="slider" id="myRange">
+                <div class="sliderticks">
+                    <p>All</p>
+                    <p>2000</p>
+                    <p>2001</p>
+                    <p>2002</p>
+                    <p>2003</p>
+                    <p>2004</p>
+                    <p>2005</p>
+                    <p>2006</p>
+                    <p>2007</p>
+                    <p>2008</p>
+                    <p>2009</p>
+                    <p>2010</p>
+                    <p>2011</p>
+                    <p>2012</p>
+                    <p>2013</p>
                 </div>
-       </div>
-            <input class="selector button is-danger" type="button" value="Show detailed tooltip"   id="tooltip-selector"/>
+            </div>
+            <input class="selector button is-danger" type="button" value="Show detailed tooltip" id="tooltip-selector" style="margin: 10px !important;" />
+        </div>
+        <div class="content">
+            <hr>
+        <div style="width: 100%; padding-left: 15px; float: left;">
+
+            <h3>Interactivity</h3>
+            <p>
+                <b>Click</b> to change the displayed county in the multi-line chart.<br>
+                <b>Hover:</b> Display tooltip with county information.<br>
+                <b>Tooltip button: </b> Switch between the detailed tooltip and less detailed tooltip.<br>
+                <b>Year selector: </b> Slide to select year to display<br>
+                <b>Zoom: </b> Use your scroll wheel to zoom in or out on the map. <br>
+                <b>Panning: </b>You can move the map around by clicking and holding the left mouse button while moving the mouse.
+
+
+            </p>
+
 
         </div>
-
-
-
+        </div>
     </div>
+
+
+    <div class="svg-box-container">
+        <svg class="svg-inner-box" id="vis2" width="100%" height="600" style="background-color: #e8e8e8; border-bottom: 1px solid black">
+        </svg>
+
+        <div class="slidecontainer" >
+            <div class="select is-danger" style="margin: 10px !important;">
+                <select id="detailSelector">
+                    <option value="Show-detailed">Show detailed</option>
+                    <option value="Show-total">Show total</option>
+                </select>
+            </div>
+
+            <div class="select is-danger" style="margin: 10px !important;">
+                <select id="countySelecotor">
+                </select>
+            </div>
+        </div>
+        <div class="content">
+            <hr>
+
+            <div style="width: 100%;  padding-left: 15px; float: left;">
+                <h3>Interactivity</h3>
+                <p>
+                    <b>Click</b> to change the displayed county in the multi-line chart.<br>
+                    <b>Hover:</b> Display tooltip with county information.<br>
+                    <b>Tooltip button: </b> Switch between the detailed tooltip and less detailed tooltip.<br>
+                    <b>Year selector: </b> Slide to select year to display
+                </p>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div style="clear: left"></div>
 </section>
+
 <!-- separator between sections -->
-<hr class="container">
-<section class="section">
-    <div class="container content">
-        <!-- todo: modify as necessary (or move visualizations to separate pages) -->
-        <h3>Interactivity</h3>
-
-        <p>
-            The visualization comes with a few interactive features.
-
-        </p>
-
-        <h3>What can learn about that data from the visualization?</h3>
+<hr style="clear: left">
+<section class="section" >
+    <div class="content" style="text-align: center">
+        <h3>What can learn about that data from the visualizations?</h3>
 
         <p>
             probably because they allow the trees to grow more freely in the parks.

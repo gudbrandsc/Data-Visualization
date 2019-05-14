@@ -63,7 +63,7 @@ path.street {
 }
 
 .active {
-    stroke: red !important;
+    stroke: black !important;
     stroke-width: 1.5px !important;
 }
 
@@ -100,7 +100,6 @@ div.tooltip {
     border-top-right-radius:  10px;
     border-top-left-radius: 10px;
 
-    border-bottom: 1px solid black;
 }
 
 .svg-box h2 {
@@ -109,11 +108,11 @@ div.tooltip {
 }
 
 .slidecontainer {
-    width: 900px;
-    margin: 25px;
-    margin-bottom: 20px;
+    width: 100%;
+    margin: 0;
 
 }
+
 
 .slider {
     -webkit-appearance: none;
@@ -149,7 +148,7 @@ div.tooltip {
     cursor: pointer;
 }
 .selector{
-    margin: 25px;
+    margin-top: 20px;
 }
 
 .sliderticks {
@@ -172,7 +171,18 @@ div.tooltip {
 
 .tooltip-table {
     font-size: 12px;
+    padding: 10px;
 }
+
+.gtooltip {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 8px;
+    pointer-events: none;
+}
+
+
 .button.is-danger{
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -187,4 +197,48 @@ div.tooltip {
 }
 .content table td, .content table th{
     border-bottom: 1px solid #696969;
+}
+
+
+.select.is-danger:not(:hover)::after {
+    opacity:1.0;
+    border-color:  #ffffff;
+}
+
+.select.is-danger select {
+    background-color: #da2724;
+    opacity:0.7;
+}
+.select.is-danger select:hover {
+    opacity:1;
+    color: #ffffff;
+}
+
+.select:not(.is-multiple):not(.is-loading):hover::after {
+    border-color: #ffffff;
+    opacity:1;
+}
+.select:not(.is-multiple):not(.is-loading):hover::after {
+    color: #ffffff;
+}
+
+.select select {
+    color: #ffffff;
+}
+.select select:hover {
+     color: #ffffff;
+ }
+
+.svg-box-container{
+    height: 1050px;
+    width: 48.5%;
+    float: left;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-right: 5px;
+}
+table td, table th {
+    text-align: left;
+    vertical-align: inherit;
+    border-bottom: 0.5px solid black;
 }
