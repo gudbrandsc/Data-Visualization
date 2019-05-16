@@ -64,11 +64,17 @@
               <span class="icon">
                 <i class="fas fa-chart-area"></i>
               </span>
-                        <span>Crime evolution map</span>
+                        <span>Visualizations</span>
                     </a>
                 </div>
 
 
+                <a class="navbar-item" href="feedback.html">
+              <span class="icon">
+                <i class="fas fa-comments"></i>
+              </span>
+                    <span>Feedback</span>
+                </a>
 
                 <a class="navbar-item" href="about.html">
               <span class="icon">
@@ -83,7 +89,13 @@
 <section class="section">
     <div class="content" style="text-align: center">
         <h1>Violent crimes in California(2000-2013) </h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,.
+        <p>
+            To analyze my data I decided to use two different visualization methods, a choropleth map,
+            and a multi-line chart. The goal for the choropleth map is to provide some geographic context to the data and allow the user to compare
+            the violent crime evolution between different counties. The goal for the multi-line chart is to compliment the
+            choropleth map and provide some more detailed information about a counties violent crime evolution
+            compared to California as a whole.
+            Both visualizations use the violent crime rate, which describes the number of crimes reported to law enforcement agencies <b>per 1,000 total population</b>.
         </p>
         <hr>
     </div>
@@ -93,19 +105,29 @@
 
 <section class="section">
     <div class="content">
-        <div style="width: 48%; text-align: center; margin-right: 5px; float: left;">
+        <div style="width: 48%; text-align: center; margin-right: 5px; float: left; margin-bottom: 15px;">
             <h2>California Counties Choropleth Map </h2>
-            <p>This  <a href="https://en.wikipedia.org/wiki/Choropleth_map">choropleth map</a> displays a geographic
+            <p>This <a href="https://en.wikipedia.org/wiki/Choropleth_map">choropleth map</a> displays a geographic
                 representation of the different counties in California. The color scale is based on the violent crime <a href="https://oag.ca.gov/sites/all/files/agweb/pdfs/cjsc/prof10/formulas.pdf">rate</a> for the selected time,
                 where the min, mean and max are displayed in the legend.
                 It's important to note that the color scale will change based on the selected year
-                so the same color might not represent the same value in a different year.
+                so the same color might not represent the same value in a different year. The map's default value "All" reflects the average crime rate from 2000-2013 for all counties.
                 This visualization comes with multiple interactive features, and can also be used to select the county displayed in the multi-line chart.
             </p>
         </div>
         <div style="width: 48%; text-align: center; margin-bottom: 15px; float: left;">
             <h2>Multi-Line Chart </h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,.</p>
+            <p>This <a href="https://en.wikipedia.org/wiki/Line_chart">multi-line chart</a> displays time series data of the violent crime rate for a specific county.
+                The y-axis represents the violent crime rate.
+                The x-axis represents the different years.
+                The data is filtered to a specific county, selected from the interactive features.
+                Every line represents a crime type and has a unique color to easily differentiate between the lines and can be seen in the color legend.
+                Each line marker represents the crime type rate for that year.
+                The crime type "California average" represents the average violent crime rate in California,
+                and helps you see how a counties violent crime rate is compared to the California average.
+                The county displayed in this chart can be selected from both the interactive feature in the
+                multi-line chart as well as the choropleth map.
+            </p>
         </div>
     </div>
     <div style="clear: left"></div>
@@ -143,22 +165,18 @@
         </div>
         <div class="content">
             <hr>
-        <div style="width: 100%; padding-left: 15px; float: left;">
+            <div style="width: 100%; padding-left: 15px; float: left;">
 
-            <h3>Interactivity</h3>
-            <p>
-                <b>Click</b> to change the displayed county in the multi-line chart.<br>
-                <b>Hover:</b> Display tooltip with county information.<br>
-                <b>Tooltip button: </b> Switch between the detailed tooltip and less detailed tooltip.<br>
-                <b>Year selector: </b> Slide to select year to display<br>
-                <b>Zoom: </b> Use your scroll wheel to zoom in or out on the map. <br>
-                <b>Panning: </b>You can move the map around by clicking and holding the left mouse button while moving the mouse.
-
-
-            </p>
-
-
-        </div>
+                <h3>Interactivity</h3>
+                <p>
+                    <b>Click: </b> Change the displayed county in the multi-line chart.<br>
+                    <b>Hover:</b> Display selected tooltip with county information.(Default simple tooltip) <br>
+                    <b>Tooltip button: </b> Switch between the detailed tooltip and the simple tooltip.<br>
+                    <b>Year slider: </b> Slide to select what year the map should show data for. <br>
+                    <b>Zoom: </b> Use the scroll wheel to zoom in or out on the map. <br>
+                    <b>Panning: </b>You can move the map around by clicking and holding the left mouse button while moving the mouse.
+                </p>
+            </div>
         </div>
     </div>
 
@@ -186,13 +204,13 @@
             <div style="width: 100%;  padding-left: 15px; float: left;">
                 <h3>Interactivity</h3>
                 <p>
-                    <b>Click</b> to change the displayed county in the multi-line chart.<br>
-                    <b>Hover:</b> Display tooltip with county information.<br>
-                    <b>Tooltip button: </b> Switch between the detailed tooltip and less detailed tooltip.<br>
-                    <b>Year selector: </b> Slide to select year to display
+                    <b>Hover:</b> The chart has 3 different hover effects: <br>
+                    &nbsp;&nbsp;&nbsp; <b>1. Dot:</b> Hover over each dot to display the crime type rate for the corresponding year<br>
+                    &nbsp;&nbsp;&nbsp; <b>2. Line:</b> Hover over each line to highlight a specific crime type. <br>
+                    &nbsp;&nbsp;&nbsp; <b>3. Legend: </b> Hover over each a legend to highlight that crime type line. <br>
+                    <b>County selector: </b> Select county to display from the dropdown button<br>
+                    <b>Visualisation type: </b> Select detailed or less detailed chart from the dropdown button
                 </p>
-
-
             </div>
         </div>
     </div>
@@ -204,16 +222,51 @@
 <hr style="clear: left">
 <section class="section" >
     <div class="content" style="text-align: center">
-        <h3>What can learn about that data from the visualizations?</h3>
+        <h3>Notable observations</h3>
 
         <p>
-            probably because they allow the trees to grow more freely in the parks.
+            One of the first observations that we can see from the multi-line chart is that the overall violent crime rate in California has decreased
+            from 2.91 in 2000 to  2.31 in 2013. To put this into perspective, the population in California in 2000 was 33.6 million and
+            the population in 2013 was 38.2 million. The number of violent crimes reported in 2000 was around 98.000,
+            compared two 2013 where the number of violent crimes reported was around 87.000.
+            Even with an increase in the population of around 5 million, the number of violent crimes
+            reported was around 10.000 less in 2013 compared to 2000.
+
         </p>
-        <h3>Credits</h3>
+        <p>
+            A second observation that can be drawn is that aggravated assault, in all counties, have a much higher rate than all other violent
+            crime types, such as rape or murder. Although the rate for aggravated assault is much higher compared to other violent crime types,
+            it's also the violent crime type that overall had the highest decrease in over time. This is probably one of the main reasons for the
+            decrease that we can see in the California average, mentioned above.
+
+        </p>
+        <p>
+            I also found it very interesting to see that even with the large increase in population,
+            the overall rate of violent crimes has decreased. One would assume that with an increase in
+            population we would also see an increase in violent crimes - which is not the case
+        </p>
+        <p>The final observation that I would like to point out can be drawn from the choropleth map. Using the range slider we can easily observe that Los Angels county its the county with the overall highest violent crime. </p>
+        <hr>
+        <h3>Further work</h3>
+        <p>
+            Before I started this project my initial assumption was that the violent crime rate and population density were strongly correlated.
+            By visualizing this data I was able to see that this was not necessarily the case.
+        </p>
+        <p>
+            I think that adding an interactive feature to the choropleth Map, were instead of having the color scale based on the violent crime rate one
+            could use the population in the county. This would make it easier to investigate my initial assumption about the correlation between population
+            density and the violent crime rate.
+        </p>
+        <p>
+            It would also be useful to add specific historical events to the multi-line chart that can have an effect on the violent crime rate such as 9/11 and the financial crises.
+        </p>        <hr>
+        <h3>Credit</h3>
         <p>
             <a href="https://github.com/codeforamerica/click_that_hood" target="_blank">California county geojson by @mwichary</a><br>
             <a href="https://bl.ocks.org/sjengle/2f6d4832397e3cdd78d735774cb5a4f2" target="_blank">SF Arrests Map by @sjengle</a><br>
             <a href="https://data.ca.gov/dataset/violent-crime-rate" target="_blank">Violent crime rate dataset by @data.ca.gov</a><br>
+            <a href="https://codepen.io/zakariachowdhury/pen/JEmjwq" target="_blank">D3 v4 Multi Line Chart by @Zakaria Chowdhury</a><br>
+
         </p>
     </div>
 </section>

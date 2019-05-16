@@ -1477,7 +1477,7 @@ function drawAllLines() {
 
 }
 
-var lineChartColorMap = { 'total': "#1171e4", 'rape': "orange", 'assault': "#b07aa1", "murder": "green","rob": "#1171e4","cali":"red"  };
+var lineChartColorMap = { 'total': "#1171e4", 'rape': "orange", 'assault': "#b07aa1", "murder": "#254653","rob": "#1171e4","cali":"red"  };
 
 var multiLineVar = "true"
 var lineOpacity = "0.85";

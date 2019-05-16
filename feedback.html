@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<!-- head -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CS 360/560 Spring 2019</title>
+
+    <!-- bulma 0.7.2 and font awesome v5.7.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" integrity="sha256-2pUeJf+y0ltRPSbKOeJh09ipQFYxUdct5nTY6GAXswA=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<!-- body -->
+<body>
+<!-- header -->
+<section class="hero is-bold header">
+    <!-- todo: change assignment and name -->
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Violent Crime Rate California (2000-2013)
+            </h1>
+            <h2 class="subtitle">
+                Gudbrand Schistad
+            </h2>
+        </div>
+    </div>
+
+    <!-- todo: change navigation as needed -->
+    <div class="hero-foot">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="index.html">
+              <span class="icon">
+                <i class="fas fa-home"></i>
+              </span>
+                        <span>Home</span>
+                    </a>
+                </div>
+
+                <div id="main-navbar" class="navbar-menu">
+                    <a class="navbar-item" href="data.html">
+              <span class="icon">
+                <i class="fas fa-chart-area"></i>
+              </span>
+                        <span>Data</span>
+                    </a>
+                    <a class="navbar-item" href="prototypes.html">
+              <span class="icon">
+                <i class="fas fa-image"></i>
+              </span>
+                        <span>Prototypes</span>
+                    </a>
+
+
+                    <a class="navbar-item" href="mapVis.html">
+              <span class="icon">
+                <i class="fas fa-chart-area"></i>
+              </span>
+                        <span>Visualizations</span>
+                    </a>
+                </div>
+
+                <a class="navbar-item" href="feedback.html">
+              <span class="icon">
+                <i class="fas fa-comments"></i>
+              </span>
+                    <span>Feedback</span>
+                </a>
+
+                <a class="navbar-item" href="about.html">
+              <span class="icon">
+                <i class="fas fa-info-circle"></i>
+              </span>
+                    <span>About</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container content">
+        <h1>Violent crime rate evolution line chart(Beta)</h1>
+        <hr>
+        <img style="border-radius: 0%;box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);" src="./img/violent_crime_detailed.png" alt="Detailed line chart" height="600" width="960"  >
+        <img style="border-radius: 0%;box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);" src="./img/violent_crime_total.png" alt="Detailed line chart" height="600" width="960"  >
+
+        <h3>Feedback</h3>
+        <p>During my beta feedback sessions, I received a lot of positive feedback for both of my visualizations, and how they were going to work together to achieve my goal.
+            Included in the table below are the rubric feedback I got from my peers, where I did not receive a full score.
+        </p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th style="width: 15ex">Criteria</th>
+                <th style="width: 12ex">Rating</th>
+                <th>Comment</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <td>Lie Factor</td>
+                <td>4</td>
+                <td>
+                    "I am confused by the inclusion of the California average for the violent crime rate in a graph that shows the rate
+                    for specific crime types in a specific county."
+                </td>
+            </tr>
+            <tr>
+                <td>Lie Factor</td>
+                <td>4</td>
+                <td>"There is some sort of lie factor associated with the way that the color is
+                    encoded on the graph. Making the color chart stationary will help with this."
+                </td>
+            </tr>
+            <tr>
+                <td>Data Ink Ratio</td>
+                <td>4</td>
+                <td>
+                    "The line chart hurts the data ink ratio which is why I think a stacked bar might be more useful."
+                </td>
+            </tr>
+            <tr>
+                <td>Design And Aesthetics</td>
+                <td>4</td>
+                <td>
+                    "The design is good but figuring out a way to have complimenting colors will make the chart more appealing to look at."
+                </td>
+            </tr>
+            <tr>
+                <td>Non-Color Encodings</td>
+                <td>4</td>
+                <td>"The map is solid, but I think that the line chart might not be the best implementation for the data you are using.
+                    I think a stacked bar chart might be more effective to show the different ratios."
+                </td>
+            </tr>
+            <tr>
+                <td>Color-Encodings</td>
+                <td>4</td>
+                <td>"I like the use of different shades of red because it brings this urgent feel to the chart.
+                    Figuring out a way to have to color scheme of the line chart compliment the map would be beneficial."
+                </td>
+            </tr>
+            <tr>
+                <td>Context</td>
+                <td>4</td>
+                <td>"Pretty good amount of context, but I think going into more detail about the meaning of the numbers would help make your viz more readable."
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+        <hr>
+        <p>One of the first issues I encountered with my beta release was the confusion about the ratio, as the word itself does not provide a lot of meaning.
+            It, therefore, became very important for me to make sure that I gave a clear explanation of what the ratio represented so that the visualizations
+            would not be interpreted incorrectly.  I, therefore, made sure to explain what the ratio represented in both my visualizations.
+        </p>
+        <p>I also received some feedback that the colors in the multi-line chart were not complimenting, the colors of the choropleth map.
+            Since the map only used different shades of red, it became difficult to find any color scheme that would complement the map without making it
+            difficult to differentiate the colors from the color legend to the correlating line. I, therefore, decided to go for colors that helped the
+            user differentiate between the lines rather than complimenting the map.
+        </p>
+        <p>There was also so confused about the California average line, and why that line was shown when showing the different crime types.
+            To solve this I tried to add 4 lines, each representing the average California crime rate for a specific crime type.
+            I did, however, feel that this just created a lot of noise in my visualization, and just made it more difficult to analyze.
+            I, therefore, decided to keep it as it is, and rather provide some more detail about what the California average represented.
+        </p>
+        <p>The last comment that I received suggested using a stacked bar chart, instead of a multi-line char.
+            I did however not use this because I felt that a line chart would represent time series data in a more understandable way than a stacked bar chart.
+        </p>
+    </div>
+</section>
+
+<!-- footer -->
+<footer class="footer">
+    <div class="content has-text-centered">
+        <small>
+            <a href="#top">
+                <span class="fas fa-arrow-up"></span>
+                <span>Back to Top</span>
+            </a>
+            <br/>
+            <a href="/">CS 360/560 Data Visualization</a>
+            &bullet;
+            <a href="https://myusf.usfca.edu/arts-sciences/computer-science">Department of Computer Science</a>
+            &bullet;
+            <a href="https://www.usfca.edu/">University of San Franciscio</a>
+        </small>
+    </div>
+</footer>
+
+<!-- end body and html -->
+</body>
+</html>
