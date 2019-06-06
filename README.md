@@ -6,6 +6,8 @@
     &bullet; University of San Francisco
   </small>
 </h1>
+View the project her: 
+https://usf-cs360-spring2019.github.io/project-gudbrandsc/
 
 This is a Github Pages repository setup for [CS 360/560 Data Visualization](/) for the Spring 2019 term at the [University of San Francisco](https://www.usfca.edu/).
 
