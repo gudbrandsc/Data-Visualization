@@ -5,8 +5,7 @@
     Spring 2019
     &bullet; University of San Francisco
   </small>
-</h1>
------   
+</h1>  
 
 View the project her: 
 https://usf-cs360-spring2019.github.io/project-gudbrandsc/
